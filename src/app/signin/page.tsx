@@ -6,7 +6,7 @@ import toast, { Toaster } from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
 import { SigninParams } from '@/types/zodTypes'
 
-export default function signIn() {
+export default function SignIn() {
   const router = useRouter()
   const [user, setUser] = React.useState<SigninParams>({
     username: '',

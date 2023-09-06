@@ -1,5 +1,5 @@
 'use client'
-import Appbar from './appbar/appbar'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 export default function Home() {
   const router = useRouter()
@@ -33,10 +33,11 @@ export default function Home() {
           </div>
         </div>
         <div className=" mt-[100px]">
-          <img
-            src="https://img.freepik.com/premium-vector/young-male-teacher-lesson-blackboard-classroom_9026-58.jpg"
-            alt=" c"
-            width={'80%'}
+          <Image
+            src="/images/classroompic.jpg"
+            width={546}
+            height={450}
+            alt="Picture of classroom"
           />
         </div>
       </div>
