@@ -16,7 +16,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: parsedInput.error }, { status: 411 })
     }
     const { username, password } = parsedInput.data
-    console.log(reqbody)
 
     //Checking that Username exists or not
     const user = await User.findOne({ username })
@@ -39,7 +38,6 @@ export async function POST(req: NextRequest) {
     })
 
     const savedUser = await newUser.save()
-    console.log(savedUser)
 
     return NextResponse.json({
       message: 'User created successfully',

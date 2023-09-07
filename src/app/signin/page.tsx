@@ -3,11 +3,14 @@ import Link from 'next/link'
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
-import { useRouter } from 'next/navigation'
+import { useRouter, redirect } from 'next/navigation'
 import { SigninParams } from '@/types/zodTypes'
+import { userState } from '@/store/atoms/userState'
+import { useSetRecoilState } from 'recoil'
 
 export default function SignIn() {
   const router = useRouter()
+  const userEmailState = useSetRecoilState(userState)
   const [user, setUser] = React.useState<SigninParams>({
     username: '',
     password: ''
@@ -20,6 +23,10 @@ export default function SignIn() {
       const response = await axios.post('/api/users/signin', user)
       console.log('Login successful', response.data)
       toast.success('Login Succesful')
+      userEmailState({
+        isLoading: false,
+        userEmail: response.data.username
+      })
       router.push('/')
     } catch (error: any) {
       console.log('signup failed', error.message)
