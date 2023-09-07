@@ -1,8 +1,11 @@
 'use client'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { useRecoilValue } from 'recoil'
+import { userEmailState } from '@/store/selectors/userEmail'
 export default function Home() {
   const router = useRouter()
+  const userEmail = useRecoilValue(userEmailState)
   return (
     <main className="">
       <div className="grid grid-cols-2">
@@ -12,24 +15,26 @@ export default function Home() {
             <h3 className="text-xl font-normal mt-2">
               A place to learn, earn and grow
             </h3>
-            <div className="btn-container mt-5">
-              <button
-                className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-[20px] mt"
-                onClick={() => {
-                  router.push('/signup')
-                }}
-              >
-                Signup
-              </button>
-              <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                onClick={() => {
-                  router.push('/signin')
-                }}
-              >
-                Login
-              </button>
-            </div>
+            {!userEmail && (
+              <div className="btn-container mt-5">
+                <button
+                  className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-[20px] mt"
+                  onClick={() => {
+                    router.push('/signup')
+                  }}
+                >
+                  Signup
+                </button>
+                <button
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                  onClick={() => {
+                    router.push('/signin')
+                  }}
+                >
+                  Login
+                </button>
+              </div>
+            )}
           </div>
         </div>
         <div className=" mt-[100px]">
