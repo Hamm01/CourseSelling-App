@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import bcryptjs from 'bcryptjs'
 import { loginInput } from '@/types/zodTypes'
 import jwt from 'jsonwebtoken'
+import type { PayloadData } from '@/types/payloadType'
 
 connect()
 
@@ -35,7 +36,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Creating payload and sending token using cookie in response
-    const payload = {
+    const payload: PayloadData = {
       id: user._id,
       username: user.username,
       password: user.password
