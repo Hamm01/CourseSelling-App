@@ -29,7 +29,7 @@ export default function SignIn() {
       })
       router.push('/')
     } catch (error: any) {
-      console.log('signup failed', error.message)
+      console.log('signin failed', error.message)
       toast.error(error.message)
     }
   }

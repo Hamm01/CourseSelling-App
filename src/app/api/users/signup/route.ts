@@ -38,11 +38,14 @@ export async function POST(req: NextRequest) {
     })
 
     const savedUser = await newUser.save()
-
+    console.log(savedUser)
     return NextResponse.json({
       message: 'User created successfully',
       success: true,
-      savedUser
+      data: {
+        username: savedUser.username,
+        id: savedUser._id
+      }
     })
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 })
