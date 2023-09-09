@@ -27,7 +27,7 @@ export default function SignIn() {
         isLoading: false,
         userEmail: response.data.username
       })
-      router.push('/')
+      window.location.href = '/'
     } catch (error: any) {
       console.log('signin failed', error.message)
       toast.error(error.message)
