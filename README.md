@@ -1,4 +1,4 @@
-## Course Selling Website ~ Assignment Week-11
+## Course Selling Application
 
 ### TechStack Involved
 
@@ -28,8 +28,8 @@ Additional libraries used in project
 Production URL [Geniusground.com](https://geniusground.com/)
 Last commit was on main : [Github](https://github.com/Hamm01/CourseSelling-App/commit/4700f697462f25d8cbc1752d5a62bc779fa77f6a)
 
-1.  App router used but not used components sepratged as different folders
-2.  Mongodb used for schema
+1.  App router used but components are not seperated in different folders
+2.  Mongodb used as for DB
 
 ### In the milestone -2 [Github commit](https://github.com/Hamm01/CourseSelling-App/commit/4283c1bac21d43a9f1bbe64d0e5cab381aa82ab9)
 
@@ -52,4 +52,4 @@ This is 3rd part of Course Selling App using Nextjs-13.
 3. Used prisma with postgres and schema is designed using it
 4. Tailwind for UI
 5. Recoil for State management
-6. backend written in Next also
+6. Backend written in Next also
